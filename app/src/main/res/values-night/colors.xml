@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="vermelho">#EA3935</color>
+    <color name="vermelhoForte">#BB2D29</color>
+    <color name="fundo">#00162c</color>
+    <color name="cinzaEscuro">#414d5b</color>
+    <color name="cinzaClaro">#9DA2A7</color>
+    <color name="fundoCardPerson">#F7F7F7</color>
+
+</resources>
