@@ -1,6 +1,7 @@
 package com.example.desafiowebservices.service
 
 
+import com.example.desafiowebservices.models.Res
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
@@ -16,7 +17,6 @@ interface Service{
         @Query("apikey")p4: String,
         @Query("hash")p5: String,
     ): Res
-
 }
 
 //serviço da retrofit

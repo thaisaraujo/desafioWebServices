@@ -3,21 +3,22 @@ package com.example.desafiowebservices.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.desafiowebservices.R
+import com.example.desafiowebservices.models.Results
+import com.squareup.picasso.Picasso
 import kotlinx.android.synthetic.main.item_comics.view.*
 
-class ComicsAdapter(private val listaComics: ComicsCompleto,
-                    private val listener: OnItemClickListener):
-                    RecyclerView.Adapter<ComicsAdapter.ComicsViewHolder> {
+class ResultDadosAdapter(private val listaComics: List<Results>,
+                         private val listener: OnItemClickListener):
+                         RecyclerView.Adapter<ResultDadosAdapter.ComicsViewHolder>() {
 
    inner class ComicsViewHolder(itemView: View): RecyclerView.ViewHolder(itemView), View.OnClickListener {
         //Dados do comics
-       val capcaComics: ImageView = itemView.ivHQ
-       val id: TextView = itemView.tvIdHQ
+       val ivHQ: ImageView = itemView.ivHQ
+       val tvIdHQ: TextView = itemView.tvIdHQ
 
        init {
            itemView.setOnClickListener(this)
@@ -41,7 +42,11 @@ class ComicsAdapter(private val listaComics: ComicsCompleto,
 
     override fun onBindViewHolder(holder: ComicsViewHolder, position: Int) {
         //passar os dados do item selecionado
-        TODO("Not yet implemented")
+        val hq = listaComics.get(position)
+        val img = hq.thumbnail.path + "." + hq.thumbnail.extension
+
+        holder.tvIdHQ.text = "#" + hq.id.toString()
+        Picasso.get().load(img).into(holder.ivHQ)
     }
 
 
